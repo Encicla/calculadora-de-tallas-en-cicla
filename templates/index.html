@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Tallas En Cicla</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        async function calcularTalla() {
+            const entrepierna = document.getElementById('entrepierna').value;
+            const tipo = document.getElementById('tipo').value;
+            const marca = document.getElementById('marca').value;
+
+            if (!entrepierna || !tipo || !marca) {
+                alert('Por favor completa todos los campos.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('entrepierna', entrepierna);
+            formData.append('tipo', tipo);
+            formData.append('marca', marca);
+
+            try {
+                const response = await fetch('/calcular', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('resultado').innerHTML = `
+                        <h4>Resultado de la Talla:</h4>
+                        <p><strong>Talla en cm:</strong> ${data.talla_cm}</p>
+                        <p><strong>Talla en pulgadas:</strong> ${data.talla_pulgadas}</p>
+                        <p><strong>Talla estándar:</strong> ${data.talla_estandar}</p>
+                    `;
+                } else {
+                    document.getElementById('resultado').innerHTML = `
+                        <p style="color: red;">Error: ${data.error}</p>
+                    `;
+                }
+            } catch (error) {
+                document.getElementById('resultado').innerHTML = `
+                    <p style="color: red;">Error al conectar con el servidor.</p>
+                `;
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- 🏞️ ENCABEZADO -->
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo En Cicla" class="logo">
+        </div>
+        <h1>Calculadora de Tallas En Cicla</h1>
+    </header>
+
+    <!-- 📝 FORMULARIO DE CÁLCULO -->
+    <div class="container card">
+        <h2>Calcula tu Talla Ideal</h2>
+        <form onsubmit="event.preventDefault(); calcularTalla();">
+            <label for="entrepierna">Longitud de entrepierna (cm):</label>
+            <input type="number" id="entrepierna" placeholder="Entrepierna (cm)" step="0.1" required>
+
+            <label for="tipo">Tipo de bicicleta:</label>
+            <select id="tipo" required>
+                <option value="ruta">Ruta</option>
+                <option value="montaña">Montaña</option>
+                <option value="híbrida">Híbrida</option>
+            </select>
+
+            <label for="marca">Marca de bicicleta:</label>
+            <select id="marca" required>
+                <option value="scott">Scott</option>
+                <option value="giant">Giant</option>
+                <option value="specialized">Specialized</option>
+                <option value="trek">Trek</option>
+                <option value="cannondale">Cannondale</option>
+                <option value="merida">Merida</option>
+                <option value="bmc">BMC</option>
+                <option value="cube">Cube</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary">Calcular</button>
+        </form>
+    </div>
+
+    <!-- 📊 RESULTADO -->
+    <div id="resultado"></div>
+
+    <!-- 📱 BOTÓN DE WHATSAPP -->
+    <div class="whatsapp-container">
+        <a href="https://wa.me/+573016208762?text=Hola,+vengo+desde+la+Calculadora+de+Tallas+En+Cicla"
+           class="btn btn-success">¡Agrega En Cicla a WhatsApp!</a>
+    </div>
+
+    <!-- 👣 FOOTER -->
+    <footer>
+        <p>© 2024 En Cicla. Todos los derechos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/encicla_sebastian_lopez/" target="_blank">
+                <img src="{{ url_for('static', filename='instagram.png') }}" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://www.facebook.com/encicla.salgar" target="_blank">
+                <img src="{{ url_for('static', filename='facebook.png') }}" alt="Facebook" class="social-icon">
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+

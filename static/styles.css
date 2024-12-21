@@ -1,0 +1,252 @@
+
+/* -------------------------- */
+/* 🎨 ESTILOS GENERALES */
+/* -------------------------- */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F9FAFC;
+    color: #333;
+}
+
+/* -------------------------- */
+/* 🏞️ ENCABEZADO */
+/* -------------------------- */
+header {
+    background-color: #1E3A8A; /* Azul oscuro del logo */
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    border-bottom: 3px solid #155A8A;
+}
+
+/* Contenedor del Logo */
+.logo-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.logo {
+    max-height: 150px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Título y subtítulo */
+header h1 {
+    font-size: 2rem;
+    margin-top: 10px;
+}
+
+/* -------------------------- */
+/* 📝 FORMULARIO */
+/* -------------------------- */
+.card {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #A6D8FF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1E3A8A;
+}
+
+/* Etiquetas y Campos */
+label {
+    font-weight: bold;
+    color: #1E3A8A;
+    display: block;
+    margin-top: 10px;
+}
+
+.form-control,
+.form-select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #A6D8FF;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #1E3A8A;
+    outline: none;
+    box-shadow: 0 0 5px rgba(30, 58, 138, 0.5);
+}
+
+/* Botón Calcular */
+.btn-primary {
+    background-color: #1E3A8A;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #155A8A;
+}
+
+/* -------------------------- */
+/* 📊 RESULTADO */
+/* -------------------------- */
+#resultado {
+    margin-top: 30px;
+    text-align: center;
+    background-color: #E3F2FD;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #1E3A8A;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#resultado h4 {
+    font-size: 1.5rem;
+    color: #1E3A8A;
+    margin-bottom: 10px;
+}
+
+#resultado p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+/* -------------------------- */
+/* 📱 BOTÓN DE WHATSAPP */
+/* -------------------------- */
+.whatsapp-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.btn-success {
+    background-color: #25D366;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: auto;
+}
+
+.btn-success:hover {
+    background-color: #128C7E;
+}
+
+/* -------------------------- */
+/* 👣 FOOTER */
+/* -------------------------- */
+footer {
+    background-color: #1E3A8A;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+    border-top: 3px solid #155A8A;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+/* -------------------------- */
+/* 📱 RESPONSIVE DESIGN */
+/* -------------------------- */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .logo {
+        max-height: 120px;
+    }
+
+    .btn-primary {
+        font-size: 0.9rem;
+    }
+
+    .btn-success {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        max-height: 100px;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    #resultado h4 {
+        font-size: 1.2rem;
+    }
+
+    #resultado p {
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        font-size: 0.8rem;
+    }
+
+    .btn-success {
+        font-size: 0.8rem;
+    }
+
+    .social-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
